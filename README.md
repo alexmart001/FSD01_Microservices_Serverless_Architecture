@@ -45,7 +45,7 @@ java -jar ./ibpf-conta/ibpf-conta-0.0.1-SNAPSHOT.jar
 java -jar ./ibpf-conta-corrente/ibpf-conta-corrente-0.0.2-SNAPSHOT.jar
 java -jar ./ibpf-cartao-credito/ibpf-cartao-credito-0.0.1-SNAPSHOT.jar
 java -jar ./ibpf-investimento/ibpf-investimento-0.0.1-SNAPSHOT.jar
-java -jar ./ibpf-api-gateway-zuul/ibpf-api-gateway-zuu-0.0.1-SNAPSHOT.jar
+java -jar ./ibpf-api-gateway-zuul/ibpf-api-gateway-zuu-0.0.2-SNAPSHOT.jar
 ```
 
 

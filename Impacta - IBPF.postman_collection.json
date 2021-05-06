@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "090083a6-866d-4a01-9943-e3b7a5ab61b6",
+		"name": "Impacta - IBPF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{client-secret}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{client-name}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "leia@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-oauth/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-oauth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login - V2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{client-secret}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{client-name}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api-gateway}}/ibpf-oauth/oauth/token",
+					"host": [
+						"{{api-gateway}}"
+					],
+					"path": [
+						"ibpf-oauth",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User by e-mail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAxMjA2NDEsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZWQwZmJjZWItMDM2MS00NzBiLTgyZDUtZjQ2MmViN2JjMTAyIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.Lm4vh5BEJM4gn2H1ty_doVusEX51BXQIV1XCHBeUwbc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8765/ibpf-user/users/search?email=nina@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-user",
+						"users",
+						"search"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "nina@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User by e-mail - V2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-gateway}}/ibpf-user/users/search?email=nina@gmail.com",
+					"host": [
+						"{{api-gateway}}"
+					],
+					"path": [
+						"ibpf-user",
+						"users",
+						"search"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "nina@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User by id - V2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-gateway}}/ibpf-user/users/2",
+					"host": [
+						"{{api-gateway}}"
+					],
+					"path": [
+						"ibpf-user",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAxMjA2NDEsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZWQwZmJjZWItMDM2MS00NzBiLTgyZDUtZjQ2MmViN2JjMTAyIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.Lm4vh5BEJM4gn2H1ty_doVusEX51BXQIV1XCHBeUwbc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta/contas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta",
+						"contas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Dados by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAxMjA2NDEsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZWQwZmJjZWItMDM2MS00NzBiLTgyZDUtZjQ2MmViN2JjMTAyIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.Lm4vh5BEJM4gn2H1ty_doVusEX51BXQIV1XCHBeUwbc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-corrente/contascorrente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-corrente",
+						"contascorrente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Dados Conta by Agencia/Conta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAyNTA3MDUsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZTljMjJiN2MtZWJiNC00YzEyLTlmYjAtZDcwYjk3NDIzOTFkIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.vB6fN6bJzK7vyDRJ90pLJNEHEFOMR7kfRQMTwfFXITs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-corrente/contascorrente/saldo?agencia=1364&conta=0067910",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-corrente",
+						"contascorrente",
+						"saldo"
+					],
+					"query": [
+						{
+							"key": "agencia",
+							"value": "1364"
+						},
+						{
+							"key": "conta",
+							"value": "0067910"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Extrato by Agencia/Conta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAyNTA3MDUsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZTljMjJiN2MtZWJiNC00YzEyLTlmYjAtZDcwYjk3NDIzOTFkIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.vB6fN6bJzK7vyDRJ90pLJNEHEFOMR7kfRQMTwfFXITs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-corrente/contascorrente/extratoConta?agencia=0272&conta=0280671",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-corrente",
+						"contascorrente",
+						"extratoConta"
+					],
+					"query": [
+						{
+							"key": "agencia",
+							"value": "0272"
+						},
+						{
+							"key": "conta",
+							"value": "0280671"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Transferencia Agencia/Conta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAzMzQ4ODQsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZjZjMTM5ZTEtNDM3MC00OGI1LWJhNjQtNzkyYjU3MWI4N2JmIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.46iVGiyQePuCBnARnHKMvX-fwfPXKnZbtmGBSxd02vQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-corrente/contascorrente/transferenciaConta?agenciaOri=0272&contaOri=0280671&agenciaDes=1364&contaDes=0067910&valor=250.00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-corrente",
+						"contascorrente",
+						"transferenciaConta"
+					],
+					"query": [
+						{
+							"key": "agenciaOri",
+							"value": "0272"
+						},
+						{
+							"key": "contaOri",
+							"value": "0280671"
+						},
+						{
+							"key": "agenciaDes",
+							"value": "1364"
+						},
+						{
+							"key": "contaDes",
+							"value": "0067910"
+						},
+						{
+							"key": "valor",
+							"value": "250.00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Saldo by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAyNDg3NDksInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZWYzYjk2MDktZGM4Yy00ZDUxLWEwMGYtOTc3YmQ0YzFhNTczIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.Z2qpxujY8d-axBc-8GrqeYgkzcPJDiZsTLOUGUcJUmk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-saldo/contassaldo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-saldo",
+						"contassaldo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Saldo by Date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAyNTA3MDUsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiZTljMjJiN2MtZWJiNC00YzEyLTlmYjAtZDcwYjk3NDIzOTFkIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.vB6fN6bJzK7vyDRJ90pLJNEHEFOMR7kfRQMTwfFXITs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-saldo/contassaldo/saldoContaData?conta=1&dataEvento=2021-04-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-saldo",
+						"contassaldo",
+						"saldoContaData"
+					],
+					"query": [
+						{
+							"key": "conta",
+							"value": "1"
+						},
+						{
+							"key": "dataEvento",
+							"value": "2021-04-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Saldo by Conta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAzMTE1NzUsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiNGMxYjMwYzAtNDE2NC00ODRlLWFmZjktNmZmZTQ2NzYwMGM1IiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.yHXmGAH1uVsH1eQRVwQeOIvLOb4TodGCzXZU_FoVnkk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-saldo/contassaldo/saldoConta?contaId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-saldo",
+						"contassaldo",
+						"saldoConta"
+					],
+					"query": [
+						{
+							"key": "contaId",
+							"value": "1"
+						},
+						{
+							"key": "dataEvento",
+							"value": "2021-05-03T19:30:00",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conta Saldo Ini by Conta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjAzMTE1NzUsInVzZXJfbmFtZSI6ImxlaWFAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiNGMxYjMwYzAtNDE2NC00ODRlLWFmZjktNmZmZTQ2NzYwMGM1IiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.yHXmGAH1uVsH1eQRVwQeOIvLOb4TodGCzXZU_FoVnkk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8765/ibpf-conta-saldo/contassaldo/saldoContaIni?contaId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"ibpf-conta-saldo",
+						"contassaldo",
+						"saldoContaIni"
+					],
+					"query": [
+						{
+							"key": "contaId",
+							"value": "1"
+						},
+						{
+							"key": "dataEvento",
+							"value": "2021-05-03T19:30:00",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

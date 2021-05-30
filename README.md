@@ -23,7 +23,7 @@
 ```
 GITHUB_USER=alexmart001
 
-GITHUB_PASS=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
+GITHUB_PASS=xxxxPWb2OXbBH
 ```
 
 3. Clonar o repositório, branch main

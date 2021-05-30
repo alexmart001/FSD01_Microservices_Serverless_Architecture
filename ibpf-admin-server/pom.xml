@@ -8,45 +8,27 @@
 		<version>2.3.10.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
 	<groupId>br.com.impacta.ibpf</groupId>
-	<artifactId>ibpf-conta</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<name>ibpf-conta</name>
-	<description>Account Microservice</description>
+	<artifactId>ibpf-admin-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ibpf-admin-server</name>
+	<description>IBPF Admin Painel</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 		<spring-cloud.version>Hoxton.SR11</spring-cloud.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -58,13 +40,16 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
